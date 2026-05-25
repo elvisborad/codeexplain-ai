@@ -146,11 +146,13 @@ const aiController = {
 
       let aiResult;
 
-      // Re-read .env dynamically to pick up user edits without requiring server restarts!
-      try {
-        require('dotenv').config({ override: true });
-      } catch (err) {
-        console.error('Failed to reload .env configuration:', err);
+      // Re-read .env dynamically to pick up user edits locally (do not run on production Render)
+      if (!process.env.RENDER) {
+        try {
+          require('dotenv').config({ override: true });
+        } catch (err) {
+          console.error('Failed to reload .env configuration:', err);
+        }
       }
       const currentApiKey = process.env.GEMINI_API_KEY;
 
@@ -305,11 +307,13 @@ User Question: "${prompt}"`;
       let replyContent;
       let updatedResponse = { ...chat.response };
 
-      // Re-read .env dynamically to pick up user edits without requiring server restarts!
-      try {
-        require('dotenv').config({ override: true });
-      } catch (err) {
-        console.error('Failed to reload .env configuration:', err);
+      // Re-read .env dynamically to pick up user edits locally (do not run on production Render)
+      if (!process.env.RENDER) {
+        try {
+          require('dotenv').config({ override: true });
+        } catch (err) {
+          console.error('Failed to reload .env configuration:', err);
+        }
       }
       const currentApiKey = process.env.GEMINI_API_KEY;
 

@@ -1,0 +1,12 @@
+# Dependency directories
+node_modules/
+dist/
+
+# Local Environment Credentials
+.env
+.env.local
+.env.*.local
+backend/.env
+frontend/.env
+backend/local_db.json
+local_db.json
